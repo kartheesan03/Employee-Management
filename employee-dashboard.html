@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - Employee Management System</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>Employee Portal</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i> Overview
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+                <a href="#attendance" class="nav-item">
+                    <i class="fas fa-calendar-check"></i> Attendance
+                </a>
+                <a href="#tasks" class="nav-item">
+                    <i class="fas fa-tasks"></i> Tasks
+                </a>
+                <a href="#leaves" class="nav-item">
+                    <i class="fas fa-calendar-alt"></i> Leaves
+                </a>
+                <a href="#salary" class="nav-item">
+                    <i class="fas fa-money-bill-wave"></i> Salary
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <h2>Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-check"></i>
+                        <div class="stat-info">
+                            <h3>Attendance</h3>
+                            <p id="attendanceStatus">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <div class="stat-info">
+                            <h3>Pending Tasks</h3>
+                            <p id="pendingTasks">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="stat-info">
+                            <h3>Leave Balance</h3>
+                            <p id="leaveBalance">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div class="stat-info">
+                            <h3>Salary Status</h3>
+                            <p id="salaryStatus">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <h2>My Profile</h2>
+                <div class="profile-container">
+                    <div class="profile-info">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-details">
+                                <h3 id="employeeName">Loading...</h3>
+                                <p id="employeePosition">Loading...</p>
+                                <p id="employeeId">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="profile-details-grid">
+                            <div class="detail-item">
+                                <label>Email</label>
+                                <p id="employeeEmail">Loading...</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Phone</label>
+                                <p id="employeePhone">Loading...</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Department</label>
+                                <p id="employeeDepartment">Loading...</p>
+                            </div>
+                            <div class="detail-item">
+                                <label>Join Date</label>
+                                <p id="employeeJoinDate">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Attendance Section -->
+            <section id="attendance" class="dashboard-section">
+                <h2>My Attendance</h2>
+                <div class="attendance-container">
+                    <div class="attendance-summary">
+                        <div class="summary-card">
+                            <h3>This Month</h3>
+                            <div class="summary-stats">
+                                <div class="stat">
+                                    <span id="presentDays">0</span>
+                                    <label>Present</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="absentDays">0</span>
+                                    <label>Absent</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="lateDays">0</span>
+                                    <label>Late</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="attendance-history">
+                        <h3>Attendance History</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Time In</th>
+                                        <th>Time Out</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="attendanceTable">
+                                    <!-- Attendance records will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="dashboard-section">
+                <h2>My Tasks</h2>
+                <div class="tasks-container">
+                    <div class="tasks-summary">
+                        <div class="summary-card">
+                            <h3>Task Overview</h3>
+                            <div class="summary-stats">
+                                <div class="stat">
+                                    <span id="totalTasks">0</span>
+                                    <label>Total</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="completedTasks">0</span>
+                                    <label>Completed</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="pendingTasksCount">0</span>
+                                    <label>Pending</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tasks-list">
+                        <h3>Task List</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Task ID</th>
+                                        <th>Description</th>
+                                        <th>Due Date</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tasksTable">
+                                    <!-- Tasks will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leaves Section -->
+            <section id="leaves" class="dashboard-section">
+                <h2>Leave Management</h2>
+                <div class="leaves-container">
+                    <div class="leaves-summary">
+                        <div class="summary-card">
+                            <h3>Leave Balance</h3>
+                            <div class="summary-stats">
+                                <div class="stat">
+                                    <span id="vlBalance">0</span>
+                                    <label>Vacation Leave</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="clBalance">0</span>
+                                    <label>Casual Leave</label>
+                                </div>
+                                <div class="stat">
+                                    <span id="slBalance">0</span>
+                                    <label>Sick Leave</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leave-application">
+                        <h3>Apply for Leave</h3>
+                        <form id="leaveForm" class="form">
+                            <div class="form-group">
+                                <label for="leaveType">Leave Type</label>
+                                <select id="leaveType" required>
+                                    <option value="VL">Vacation Leave</option>
+                                    <option value="CL">Casual Leave</option>
+                                    <option value="SL">Sick Leave</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="startDate">Start Date</label>
+                                <input type="date" id="startDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End Date</label>
+                                <input type="date" id="endDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="leaveReason">Reason</label>
+                                <textarea id="leaveReason" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </form>
+                    </div>
+                    <div class="leave-history">
+                        <h3>Leave History</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Reason</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leaveTable">
+                                    <!-- Leave history will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Salary Section -->
+            <section id="salary" class="dashboard-section">
+                <h2>Salary Information</h2>
+                <div class="salary-container">
+                    <div class="salary-summary">
+                        <div class="summary-card">
+                            <h3>Current Month</h3>
+                            <div class="salary-details">
+                                <div class="detail-item">
+                                    <label>Basic Salary</label>
+                                    <p id="basicSalary">Loading...</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Allowances</label>
+                                    <p id="allowances">Loading...</p>
+                                </div>
+                                <div class="detail-item">
+                                    <label>Deductions</label>
+                                    <p id="deductions">Loading...</p>
+                                </div>
+                                <div class="detail-item total">
+                                    <label>Net Salary</label>
+                                    <p id="netSalary">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="salary-history">
+                        <h3>Salary History</h3>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Basic Salary</th>
+                                        <th>Allowances</th>
+                                        <th>Deductions</th>
+                                        <th>Net Salary</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="salaryTable">
+                                    <!-- Salary history will be inserted here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notificationArea"></div>
+
+    <script src="employee-dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-users-cog"></i>
+                <h1>Employee Management System</h1>
+            </div>
+            <div class="login-tabs">
+                <button class="tab-btn active" data-tab="hr">HR Login</button>
+                <button class="tab-btn" data-tab="employee">Employee Login</button>
+            </div>
+            
+            <!-- HR Login Form -->
+            <form id="hrLoginForm" class="login-form active">
+                <div class="form-group">
+                    <label for="hrEmail">Email</label>
+                    <input type="email" id="hrEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="hrPassword">Password</label>
+                    <input type="password" id="hrPassword" required>
+                </div>
+                <button type="submit">Login as HR</button>
+            </form>
+
+            <!-- Employee Login Form -->
+            <form id="employeeLoginForm" class="login-form">
+                <div class="form-group">
+                    <label for="empId">Employee ID</label>
+                    <input type="text" id="empId" required>
+                </div>
+                <div class="form-group">
+                    <label for="empPassword">Password</label>
+                    <input type="password" id="empPassword" required>
+                </div>
+                <button type="submit">Login as Employee</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
