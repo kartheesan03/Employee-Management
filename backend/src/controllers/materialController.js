@@ -151,9 +151,13 @@ exports.getStats = async (_req, res, next) => {
     const inStock = await Material.count({ where: { status: 'in_stock' } });
     const lowStock = await Material.count({ where: { status: 'low_stock' } });
     const outOfStock = await Material.count({ where: { status: 'out_of_stock' } });
-    const totalValue = await Material.sum(
-      Material.sequelize.literal('quantity * unit_price')
-    );
+    const result = await Material.findOne({
+      attributes: [
+        [Material.sequelize.fn('SUM', Material.sequelize.literal('quantity * unit_price')), 'totalValue'],
+      ],
+      raw: true,
+    });
+    const totalValue = result ? parseFloat(result.totalValue) : 0;
 
     return res.json({
       stats: { totalMaterials, inStock, lowStock, outOfStock, totalValue: totalValue || 0 },
